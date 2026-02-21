@@ -17,9 +17,9 @@ This repository documents my journey through the **Open Source Society Universit
 
 ### Phase 0 — Setup & Foundations
 
-* [x] Linux environment setup
-* [x] Git & GitHub workflow
-* [x] Python environment
+* [ ] Linux environment setup
+* [ ] Git & GitHub workflow
+* [ ] Python environment
 * [ ] Daily coding habit established
 
 ---
@@ -121,7 +121,7 @@ This repository documents my journey through the **Open Source Society Universit
 
 | Project              | Description               | Tech   | Status |
 | -------------------- | ------------------------- | ------ | ------ |
-| CLI Calculator       | Basic Python CLI app      | Python | ✅      |
+| CLI Calculator       | Basic Python CLI app      | Python | ☐      |
 | To-Do Manager        | File-based CRUD app       | Python | ☐      |
 | Algorithm Visualizer | Sorting & searching demos | Python | ☐      |
 
