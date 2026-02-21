@@ -150,7 +150,6 @@ This repository documents my journey through the **Open Source Society Universit
 ## 🎯 Long-Term Plan
 
 * Complete OSSU core curriculum
-* Enroll in a fully online **Kenyan BSc Computer Science**
 * Specialize in one technical area
 * Graduate with strong systems knowledge and real projects
 
