@@ -170,9 +170,6 @@ This repository is a **learning log**, not a tutorial. Code may be imperfect and
 
 ---
 
-### Pro Tip (Important)
-
-Pin this repository to your GitHub profile.
-Recruiters, classmates, and even *future you* will thank you.
+Author: Vincent Ohola
 
 ---
