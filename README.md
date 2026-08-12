@@ -31,6 +31,8 @@ The objective is not to collect certificates or rush through a curriculum. The o
 | Study plan and timeline | ✅ Documented |
 | Public progress tracking | ✅ Active |
 
+**Completed curriculum items:** 1, 4, 9 and 10.
+
 **Important:** A research paper or book appearing in the research library does **not** mean it has been completed. Course and reading completion will only be marked when actually studied.
 
 ---
@@ -123,7 +125,7 @@ The study environment is documented in [`study-environment/`](study-environment/
 
 ### Phase 1 — Intro to Computer Science
 
-- [ ] OSSU Intro to CS / Python
+- [x] OSSU Intro to CS / Python — **Completed (Item 1)**
 - [ ] Programming fundamentals
 - [ ] Computational thinking
 - [ ] Introductory projects
@@ -135,11 +137,17 @@ The study environment is documented in [`study-environment/`](study-environment/
 - [ ] Sets, relations and functions
 - [ ] Combinatorics
 - [ ] Probability and statistics
+- [x] Calculus 1A: Differentiation — **Completed (Item 9)**
+- [x] Calculus 1B: Integration — **Completed (Item 10)**
+- [ ] Calculus 1C: Coordinate Systems & Infinite Series
 - [ ] Linear algebra
 - [ ] Calculus
 
 ### Phase 3 — Core Programming & Algorithms
 
+- [x] Programming Languages, Part A — **Completed (Item 4)**
+- [ ] Programming Languages, Part B
+- [ ] Programming Languages, Part C
 - [ ] Functional programming
 - [ ] Object-oriented programming
 - [ ] Programming languages
@@ -280,7 +288,8 @@ These projects are complementary to the formal OSSU curriculum and are not autom
 ├── RESEARCH_ROADMAP.md
 ├── study-plan/
 │   ├── README.md
-│   └── OSSU-CS-Timeline.xlsx
+│   ├── OSSU-CS-Timeline.xlsx
+│   └── CURRICULUM.md
 ├── study-environment/
 │   ├── README.md
 │   ├── CHANGELOG.md
