@@ -295,8 +295,6 @@ Completion means the material has actually been studied and understood sufficien
 
 This is a **personal learning log and progress tracker**, not a replacement for the official OSSU curriculum.
 
-The official OSSU curriculum recommends progressing through Core CS systematically and using prerequisites to guide the sequence. citeturn0search0turn0search4
-
 This repository records my own progress, notes, projects and supplementary research path.
 
 ---
