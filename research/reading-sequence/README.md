@@ -118,46 +118,46 @@ The research roadmap is organized into **20 progressive stages**. Books are used
 
 **What to master:** VAE, GAN, diffusion, score-based models, latent diffusion.
 
-**Primary books / references:** Probabilistic Machine Learning — Kevin Murphy; Deep Learning — Goodfellow, Bengio & Courville; Understanding Deep Learning — Simon J.D. Prince.
+**Primary books / references:** Probabilistic Machine Learning — Kevin Murphy; Deep Generative Modeling — Jakub Tomczak; Deep Learning — Goodfellow, Bengio & Courville.
 
-**How to use the books:** Establish probabilistic and deep-learning foundations before working through generative-model papers.
+**How to use the books:** Build the probabilistic/variational foundation first, then GANs and diffusion.
 
-## Stage 16 — Large language models
+## Stage 16 — LLMs
 
-**What to master:** Scaling laws, pretraining, instruction tuning, preference optimization, parameter-efficient fine-tuning.
+**What to master:** Scaling, pretraining, instruction tuning, RLHF, preference optimization, RAG.
 
-**Primary books / references:** Build a Large Language Model (From Scratch) — Sebastian Raschka; Hands-On Large Language Models — Alammar & Grootendorst; Designing Machine Learning Systems — Chip Huyen.
+**Primary books / references:** Natural Language Processing with Transformers — Tunstall, von Werra & Wolf; Build a Large Language Model (From Scratch) — Sebastian Raschka; Hands-On Large Language Models — Jay Alammar & Maarten Grootendorst; Designing Machine Learning Systems — Chip Huyen.
 
-**How to use the books:** Implement small language models and understand training/serving constraints before moving into large-scale LLM papers.
+**How to use the books:** Use Raschka for implementation, Transformers for architecture, and Huyen for systems considerations.
 
 ## Stage 17 — AI systems
 
-**What to master:** Distributed training, inference, GPUs, memory efficiency, serving, monitoring and production ML systems.
+**What to master:** Distributed training, parallelism, quantization, LoRA, serving, inference.
 
-**Primary books / references:** Designing Machine Learning Systems — Chip Huyen; Programming Massively Parallel Processors — Kirk & Hwu; Database Internals — Alex Petrov.
+**Primary books / references:** Designing Machine Learning Systems — Chip Huyen; Designing Data-Intensive Applications — Martin Kleppmann; Programming Massively Parallel Processors — Kirk & Hwu; CUDA by Example — Sanders & Kandrot.
 
-**How to use the books:** Connect system architecture concepts to the training and inference papers in the research library.
+**How to use the books:** Connect distributed systems, GPUs, memory optimization, parallelism, fine-tuning and inference serving.
 
-## Stage 18 — Advanced AI and multimodal systems
+## Stage 18 — Graphs & time series
 
-**What to master:** Multimodal models, agents, tool use, retrieval, reasoning and modern AI architectures.
+**What to master:** GNNs, graph attention, forecasting and temporal transformers.
 
-**Primary books / references:** Natural Language Processing with Transformers — Tunstall, von Werra & Wolf; Hands-On Large Language Models — Alammar & Grootendorst; Understanding Deep Learning — Simon J.D. Prince.
+**Primary books / references:** Graph Representation Learning — William L. Hamilton; Forecasting: Principles and Practice — Hyndman & Athanasopoulos; Deep Learning for Time Series Forecasting — Jason Brownlee.
 
-**How to use the books:** Use the books as conceptual references while reading current advanced systems literature.
+**How to use the books:** Learn graph and forecasting fundamentals before specialized neural architectures.
 
-## Stage 19 — Responsible AI and research practice
+## Stage 19 — Responsible AI
 
-**What to master:** Evaluation, robustness, fairness, safety, reproducibility, scientific communication and research methodology.
+**What to master:** Datasheets, model cards, safety, fairness, technical debt.
 
-**Primary books / references:** The Craft of Research — Booth et al.; How to Read a Paper — Keshav; Fairness and Machine Learning — Barocas et al.
+**Primary books / references:** Fairness and Machine Learning — Barocas, Hardt & Narayanan; Weapons of Math Destruction — Cathy O'Neil; The Alignment Problem — Brian Christian.
 
-**How to use the books:** Apply the research-method principles throughout the entire paper-reading process rather than waiting until the end.
+**How to use the books:** Use these alongside technical papers to understand practical failure modes and evaluation.
 
-## Stage 20 — Research synthesis
+## Stage 20 — Research practice
 
-**What to master:** Connect mathematical foundations, Computer Science theory, systems, ML and AI into independent research capability.
+**What to master:** How to read, reproduce, critique and extend papers.
 
-**Primary books / references:** Use the complete book library selectively according to the research problem, together with the relevant papers and implementation references.
+**Primary books / references:** The Craft of Research — Booth, Colomb & Williams; How to Read a Paper — Keshav; Writing Science — Joshua Schimel; Research Methodology — C.R. Kothari.
 
-**How to use the books:** At this stage, books become targeted references while primary research literature, experiments and original technical work become the main focus.
+**How to use the books:** Use continuously. Every paper should produce notes, questions, experiments and references.
