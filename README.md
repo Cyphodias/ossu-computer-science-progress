@@ -6,9 +6,7 @@
 
 This repository documents my transition into Computer Science through structured self-study.
 
-I come from a **Chemical and Process Engineering** background and am now pursuing Computer Science because of a long-standing interest in technology, systems, programming and problem solving.
-
-The objective is not to collect certificates or rush through a curriculum. The objective is to build the **mathematical, theoretical, programming and systems foundations required to understand Computer Science deeply** and eventually work at research depth in selected areas.
+The objective is not to collect certificates or rush through a curriculum. The objective is to build the mathematical, theoretical, programming and systems foundations required to understand Computer Science deeply and eventually work at research depth in selected areas.
 
 **OSSU study period:** February 2026 → July 2029
 
@@ -27,13 +25,18 @@ The objective is not to collect certificates or rush through a curriculum. The o
 | Research-paper reading | 🟡 Research track established |
 | CS + Mathematics research library | ✅ 257 references organized |
 | Book + paper reading sequence | ✅ Established |
-| Study environment | ✅ Documented |
-| Study plan and timeline | ✅ Documented |
+| Study Environment | ✅ Documented |
+| Study Plan and Timeline | ✅ Documented |
+| Projects structure | ✅ Established |
+| Notes / Knowledge Base | ✅ Established |
+| Experiments / Lab Work | ✅ Established |
 | Public progress tracking | ✅ Active |
 
-**Completed curriculum items:** 1, 4, 9 and 10.
+**Curriculum progress:** **4 of 40 items completed (10%)**.
 
-**Important:** A research paper or book appearing in the research library does **not** mean it has been completed. Course and reading completion will only be marked when actually studied.
+Completed items: **#1, #4, #9 and #10**.
+
+> Research references are not considered completed merely because they have been collected. Course and reading completion is recorded only after actual study.
 
 ---
 
@@ -73,8 +76,6 @@ RAG / Alignment / Tool Use
 AI Systems + Research
 ```
 
-The research sequence is deliberately broader than the OSSU curriculum. It is intended to connect the **undergraduate CS foundation** to the research literature that produced modern AI systems.
-
 See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 
 ---
@@ -83,30 +84,29 @@ See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 
 The OSSU curriculum is supported by a structured study timeline and detailed curriculum dataset.
 
-The planning workbook contains:
-
 - **Timeline** — overall study schedule, workload assumptions and projected progression
 - **Curriculum Data** — detailed course data, estimated effort, prerequisites, calculated dates and actual completion tracking
+- **Curriculum Table** — GitHub-readable version with clickable course links
 
-See [`study-plan/`](study-plan/) for the workbook documentation.
+See [`Study Plan`](study-plan/) and [`CURRICULUM.md`](study-plan/CURRICULUM.md).
 
 ---
 
 ## 🖥️ Study Environment
 
-A dedicated study environment has been established to support practical work alongside the curriculum.
+A dedicated study environment supports practical work alongside the curriculum.
 
-The environment includes:
+It includes:
 
-- **Windows 11 Pro laptop** — primary mobile development and study workstation
-- **Ubuntu desktop** — dedicated Linux development and systems workstation
-- **Ventoy portable laboratory** — bootable collection of operating systems for practice and experimentation, including Ubuntu and Kali Linux
+- **Windows 11 Pro Laptop** — primary mobile development and study workstation
+- **Ubuntu Desktop** — dedicated Linux development and systems workstation
+- **Ventoy Portable Laboratory** — bootable operating-system collection for practice and experimentation
 - **VirtualBox** — desktop virtualization and isolated experiments
 - **Hyper-V** — Windows virtualization and systems experiments
 - **WSL** — Linux tooling integrated with Windows
-- **Proxmox VE home laboratory** — persistent virtual machines, containers and services for practical systems work
+- **Proxmox VE Home Laboratory** — persistent virtual machines, containers and services for practical systems work
 
-The study environment is documented in [`study-environment/`](study-environment/).
+See [`Study Environment`](study-environment/).
 
 > **Privacy:** This is a public repository. Private home-server addresses, credentials, physical location, VPN details, personal identifiers and other sensitive infrastructure information are deliberately excluded.
 
@@ -120,7 +120,7 @@ The study environment is documented in [`study-environment/`](study-environment/
 - [x] Establish a structured OSSU study plan
 - [x] Establish a long-term study timeline
 - [x] Set up a research-paper/book tracking system
-- [x] Establish a practical CS study environment
+- [x] Establish a practical CS Study Environment
 - [ ] Complete all remaining foundation coursework
 
 ### Phase 1 — Intro to Computer Science
@@ -140,8 +140,8 @@ The study environment is documented in [`study-environment/`](study-environment/
 - [x] Calculus 1A: Differentiation — **Completed (Item 9)**
 - [x] Calculus 1B: Integration — **Completed (Item 10)**
 - [ ] Calculus 1C: Coordinate Systems & Infinite Series
+- [ ] Mathematics for Computer Science
 - [ ] Linear algebra
-- [ ] Calculus
 
 ### Phase 3 — Core Programming & Algorithms
 
@@ -150,7 +150,6 @@ The study environment is documented in [`study-environment/`](study-environment/
 - [ ] Programming Languages, Part C
 - [ ] Functional programming
 - [ ] Object-oriented programming
-- [ ] Programming languages
 - [ ] Data structures
 - [ ] Algorithms
 - [ ] Complexity analysis
@@ -204,42 +203,57 @@ The study environment is documented in [`study-environment/`](study-environment/
 
 ## 📚 Research Track
 
-A major milestone reached so far is the creation of a structured **Computer Science + Mathematics + AI research library**.
+A major milestone is the creation of a structured **Computer Science + Mathematics + AI research library** containing **257 references** organized into a progressive reading sequence.
 
-### Current research library
+The research programme includes Computer Science foundations, Mathematics, algorithms and theory, systems, security, Machine Learning, Deep Learning, NLP, attention, transformers, Computer Vision, Reinforcement Learning, generative models, LLMs, AI systems, responsible AI and research methodology.
 
-- **257 references** organized into a progressive reading sequence
-- Computer Science foundations
-- Relevant Mathematics
-- Algorithms and theory
-- Computer architecture
-- Operating systems
-- Networking
-- Databases and distributed systems
-- Security and cryptography
-- Classical machine learning
-- Deep learning
-- NLP
-- Sequence models
-- Attention
-- Transformers
-- Computer vision
-- Reinforcement learning
-- Generative models
-- LLMs
-- AI systems
-- Responsible AI
-- Research methodology
+The reading sequence connects primary books with seminal papers and progresses from foundations toward modern AI systems.
 
-### Seminal AI progression
+See [`Research`](research/) and [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 
-The reading sequence explicitly follows the historical and technical development of modern language models:
+---
 
-**Word2Vec → RNN/LSTM → Seq2Seq → Bahdanau Attention → Transformer → BERT → GPT → T5 → scaling → instruction tuning/RLHF → LLaMA → RAG → modern LLM systems**
+## 🧪 Projects, Notes and Experiments
 
-The research library also contains books to be used as the primary learning references before or alongside the papers.
+The repository is being developed around five connected components:
 
-See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
+```text
+Courses
+   ↓
+Books + Papers
+   ↓
+Notes
+   ↓
+Projects
+   ↓
+Experiments
+   ↓
+Practical Study Environment
+```
+
+### Projects
+
+Substantial implementations demonstrate that concepts have been applied in practice.
+
+See [`Projects`](projects/).
+
+### Notes
+
+The knowledge base records concepts in my own words, mathematical foundations, examples, implementations and connections to courses and research.
+
+See [`Notes`](notes/).
+
+### Experiments
+
+Laboratory experiments document practical investigations in Linux, virtualization, networking, security, distributed systems and AI.
+
+See [`Experiments`](experiments/).
+
+---
+
+## 🏁 Milestones
+
+Major programme milestones are maintained in [`MILESTONES.md`](MILESTONES.md).
 
 ---
 
@@ -247,36 +261,20 @@ See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 
 - Understand concepts rather than memorize them.
 - Code what can be implemented.
-- Use mathematics to understand algorithms and ML rather than treating it as a separate subject.
+- Use mathematics to understand algorithms and ML.
 - Read seminal papers after establishing the required foundations.
 - Prefer primary sources and authoritative material.
-- Keep a public record of progress.
-- Do not mark material complete simply because it has been collected or planned.
 - Build projects to turn theory into working knowledge.
-- Use the study environment to turn theoretical material into practical experiments.
+- Use the Study Environment to turn theoretical material into practical experiments.
+- Do not mark material complete simply because it has been collected or planned.
 
 ---
 
 ## 🛠️ Technical Work
 
-My learning is reinforced through practical infrastructure and software work, including:
+My learning is reinforced through practical infrastructure and software work, including Linux, Git/GitHub, Python, virtualization, Proxmox, networking, DNS, monitoring, Grafana, Loki, Prometheus, Grafana Alloy, Windows telemetry and systems administration.
 
-- Linux
-- Git and GitHub
-- Python
-- Virtualization
-- Proxmox
-- Networking
-- DNS infrastructure
-- Monitoring
-- Grafana
-- Loki
-- Prometheus
-- Grafana Alloy
-- Windows telemetry and logging
-- Systems administration
-
-These projects are complementary to the formal OSSU curriculum and are not automatically counted as OSSU course completion.
+These activities complement the formal OSSU curriculum and are not automatically counted as OSSU course completion.
 
 ---
 
@@ -285,11 +283,15 @@ These projects are complementary to the formal OSSU curriculum and are not autom
 ```text
 .
 ├── README.md
+├── CHANGELOG.md
+├── MILESTONES.md
 ├── RESEARCH_ROADMAP.md
+│
 ├── study-plan/
 │   ├── README.md
-│   ├── OSSU-CS-Timeline.xlsx
+│   ├── OSSU CS Timeline.xlsx
 │   └── CURRICULUM.md
+│
 ├── study-environment/
 │   ├── README.md
 │   ├── CHANGELOG.md
@@ -297,30 +299,29 @@ These projects are complementary to the formal OSSU curriculum and are not autom
 │   ├── 02-ventoy-lab/
 │   ├── 03-desktop-ubuntu/
 │   └── 04-home-server-lab/
-├── LICENSE
-└── ...
-```
-
-As coursework and projects are completed, this repository will grow to contain:
-
-```text
-ossu/
-├── intro_cs/
-├── programming/
-├── math/
-├── algorithms/
-├── systems/
-├── theory/
-├── security/
-├── databases/
-└── advanced_cs/
-
-projects/
-
-research/
-├── papers/
+│
+├── research/
+│   ├── README.md
+│   └── reading-tracker.md
+│
+├── projects/
+│   ├── README.md
+│   ├── programming/
+│   ├── algorithms/
+│   ├── systems/
+│   ├── networking/
+│   ├── databases/
+│   ├── security/
+│   ├── machine-learning/
+│   └── ai/
+│
 ├── notes/
-└── experiments/
+│   └── README.md
+│
+├── experiments/
+│   └── README.md
+│
+└── LICENSE
 ```
 
 ---
@@ -333,7 +334,8 @@ research/
 | 🟡 | In progress |
 | ✅ | Completed |
 | 🔁 | Reviewing / revisiting |
-| 📚 | Reference material collected — **not completed** |
+| 📚 | Reference material collected — not completed |
+| 🧪 | Reproduced through an implementation or experiment |
 
 Completion means the material has actually been studied and understood sufficiently to be recorded as complete.
 
@@ -343,9 +345,15 @@ Completion means the material has actually been studied and understood sufficien
 
 - [OSSU Computer Science](https://github.com/ossu/computer-science) — official curriculum
 - [OSSU CS Website](https://cs.ossu.dev/) — current curriculum documentation
-- [Research Roadmap](RESEARCH_ROADMAP.md) — personal CS + Mathematics + AI research sequence
+- [Research Roadmap](RESEARCH_ROADMAP.md) — CS + Mathematics + AI research sequence
+- [Research](research/) — research library structure and reading tracker
 - [Study Plan](study-plan/) — OSSU timeline and curriculum planning
 - [Study Environment](study-environment/) — computing environment used for practical study
+- [Projects](projects/) — practical project portfolio
+- [Notes](notes/) — knowledge base
+- [Experiments](experiments/) — practical laboratory work
+- [Milestones](MILESTONES.md) — major programme milestones
+- [Changelog](CHANGELOG.md) — repository history
 
 ---
 
@@ -359,5 +367,3 @@ This repository records my own progress, notes, projects and supplementary resea
 
 **Started:** February 2026  
 **Target OSSU completion:** July 2029
-
-**Author:** Vincent Ohola
