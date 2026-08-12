@@ -27,6 +27,7 @@ The objective is not to collect certificates or rush through a curriculum. The o
 | Research-paper reading | 🟡 Research track established |
 | CS + Mathematics research library | ✅ 257 references organized |
 | Book + paper reading sequence | ✅ Established |
+| Study environment | ✅ Documented |
 | Public progress tracking | ✅ Active |
 
 **Important:** A research paper or book appearing in the research library does **not** mean it has been completed. Course and reading completion will only be marked when actually studied.
@@ -75,6 +76,26 @@ See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 
 ---
 
+## 🖥️ Study Environment
+
+A dedicated study environment has been established to support practical work alongside the curriculum.
+
+The environment includes:
+
+- **Windows 11 Pro laptop** — primary mobile development and study workstation
+- **Ubuntu desktop** — dedicated Linux development and systems workstation
+- **Ventoy portable laboratory** — bootable collection of operating systems for practice and experimentation, including Ubuntu and Kali Linux
+- **VirtualBox** — desktop virtualization and isolated experiments
+- **Hyper-V** — Windows virtualization and systems experiments
+- **WSL** — Linux tooling integrated with Windows
+- **Proxmox VE home laboratory** — persistent virtual machines, containers and services for practical systems work
+
+The study environment is documented in [`study-environment/`](study-environment/).
+
+> **Privacy:** This is a public repository. Private home-server addresses, credentials, physical location, VPN details, personal identifiers and other sensitive infrastructure information are deliberately excluded.
+
+---
+
 ## 🧭 OSSU Progress
 
 ### Phase 0 — Setup & Foundations
@@ -83,6 +104,7 @@ See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 - [x] Establish a structured OSSU study plan
 - [x] Establish a long-term study timeline
 - [x] Set up a research-paper/book tracking system
+- [x] Establish a practical CS study environment
 - [ ] Complete all remaining foundation coursework
 
 ### Phase 1 — Intro to Computer Science
@@ -209,6 +231,7 @@ See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
 - Keep a public record of progress.
 - Do not mark material complete simply because it has been collected or planned.
 - Build projects to turn theory into working knowledge.
+- Use the study environment to turn theoretical material into practical experiments.
 
 ---
 
@@ -241,6 +264,13 @@ These projects are complementary to the formal OSSU curriculum and are not autom
 .
 ├── README.md
 ├── RESEARCH_ROADMAP.md
+├── study-environment/
+│   ├── README.md
+│   ├── CHANGELOG.md
+│   ├── 01-laptop-windows/
+│   ├── 02-ventoy-lab/
+│   ├── 03-desktop-ubuntu/
+│   └── 04-home-server-lab/
 ├── LICENSE
 └── ...
 ```
@@ -288,6 +318,7 @@ Completion means the material has actually been studied and understood sufficien
 - [OSSU Computer Science](https://github.com/ossu/computer-science) — official curriculum
 - [OSSU CS Website](https://cs.ossu.dev/) — current curriculum documentation
 - [Research Roadmap](RESEARCH_ROADMAP.md) — personal CS + Mathematics + AI research sequence
+- [Study Environment](study-environment/) — computing environment used for practical study
 
 ---
 
