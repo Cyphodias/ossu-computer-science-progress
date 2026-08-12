@@ -1,63 +1,67 @@
-# Research
+# Research Library
 
-This directory organizes the Computer Science, Mathematics, AI and Machine Learning research track that complements the OSSU curriculum.
+This directory contains the Computer Science, Mathematics and AI research track developed alongside the OSSU Computer Science curriculum.
 
-## Reading States
+## Contents
 
-| Symbol | Meaning |
+| Section | Purpose |
 |---|---|
-| 📚 | Reference collected |
-| 🟡 | Reading / studying |
-| 🔁 | Reviewing |
-| ✅ | Completed and understood sufficiently to record |
-| 🧪 | Implemented or experimentally reproduced |
+| [Papers & References](papers/README.md) | Complete 257-entry research library with clickable existing links |
+| [Books](books/README.md) | 36 primary books and references |
+| [Reading Sequence](reading-sequence/README.md) | 20-stage progressive reading sequence integrating books and papers |
+| [Reading Tracker](reading-tracker.md) | Status definitions and high-level research-library tracking |
+| [End-State Capabilities](end-state.md) | 12 capabilities the research track is intended to develop |
 
-A paper or book is **not** considered completed merely because it has been collected.
+## How the Library Is Used
 
-## Research Areas
+The research track supplements OSSU rather than replacing it.
 
-- Computer Science foundations
+```text
+OSSU foundations
+      ↓
+Mathematics + Computer Science foundations
+      ↓
+Primary books
+      ↓
+Implementation / projects
+      ↓
+Seminal papers
+      ↓
+Modern research literature
+      ↓
+Research projects and experiments
+```
+
+The books provide the conceptual spine. Papers are introduced progressively as the relevant mathematical and Computer Science foundations are acquired.
+
+## Research Progression
+
+The library covers:
+
 - Mathematics
-- Algorithms and theory
-- Computer architecture
-- Operating systems
+- Algorithms and Theory
+- Computer Systems
 - Networking
-- Databases and distributed systems
-- Security and cryptography
-- Machine Learning
+- Databases and Distributed Systems
+- Security and Cryptography
+- Classical Machine Learning
 - Deep Learning
-- Natural Language Processing
+- Sequence Models and NLP
 - Attention and Transformers
+- Representation Learning
 - Computer Vision
 - Reinforcement Learning
 - Generative Models
 - Large Language Models
-- AI Systems
+- Graph Learning
+- Time Series
+- Information Retrieval
+- Software Engineering
 - Responsible AI
-- Research methodology
+- Research Methods
 
-## Reading Sequence
+## Important Distinction
 
-The research programme uses books as primary references where appropriate and papers as historical, technical and research sources.
+Being present in the library means **reference material has been collected and organized**. It does not mean the material has been read or mastered.
 
-The intended progression is:
-
-**Foundations → Mathematics → Algorithms → Systems → Machine Learning → Deep Learning → Sequence Models → Attention → Transformers → BERT/GPT/T5 → Modern LLM Systems → AI Research**
-
-See [`RESEARCH_ROADMAP.md`](../RESEARCH_ROADMAP.md) for the detailed sequence.
-
-## Recommended Record
-
-Each paper or book should eventually record:
-
-- title and authors
-- year
-- subject area
-- prerequisite knowledge
-- primary book/reference, where applicable
-- source link
-- reading status
-- key concepts
-- notes
-- implementation or experiment, where applicable
-- related OSSU course
+Completion is tracked separately from collection.
