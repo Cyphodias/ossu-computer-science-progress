@@ -4,7 +4,7 @@ This directory contains the working study-planning material used to organize my 
 
 ## OSSU CS Timeline Workbook
 
-**Workbook:** `OSSU-CS-Timeline.xlsx`
+**Workbook:** [`OSSU CS Timeline.xlsx`](./OSSU%20CS%20Timeline.xlsx)
 
 The workbook contains two complementary sheets:
 
@@ -21,11 +21,14 @@ The **Timeline** sheet provides the overall study schedule and is based on the c
 
 The **Curriculum Data** sheet is the underlying detailed dataset for the timeline. It records the individual curriculum components together with duration, estimated effort ranges, prerequisites, calculated dates and an **Actual End Date** field for recording real progress.
 
+The same information is also presented as a GitHub-readable table in [`CURRICULUM.md`](./CURRICULUM.md), with the existing course links from the workbook preserved as clickable links.
+
 > Planned dates are estimates. Actual completion should only be entered after the corresponding material has genuinely been studied and completed.
 
 ## Study Planning Principles
 
 - Use the timeline as a planning tool, not as evidence of completion.
+- Use `CURRICULUM.md` for quick browsing directly in GitHub.
 - Update actual completion dates as coursework is completed.
 - Keep prerequisite relationships visible when changing the study sequence.
 - Revisit estimates as real study time becomes known.
@@ -34,5 +37,6 @@ The **Curriculum Data** sheet is the underlying detailed dataset for the timelin
 ## Related Sections
 
 - [Main Repository](../README.md)
+- [Curriculum Data](./CURRICULUM.md)
 - [Study Environment](../study-environment/)
 - [Research Roadmap](../RESEARCH_ROADMAP.md)
