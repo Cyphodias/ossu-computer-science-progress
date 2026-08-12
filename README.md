@@ -28,6 +28,7 @@ The objective is not to collect certificates or rush through a curriculum. The o
 | CS + Mathematics research library | ✅ 257 references organized |
 | Book + paper reading sequence | ✅ Established |
 | Study environment | ✅ Documented |
+| Study plan and timeline | ✅ Documented |
 | Public progress tracking | ✅ Active |
 
 **Important:** A research paper or book appearing in the research library does **not** mean it has been completed. Course and reading completion will only be marked when actually studied.
@@ -73,6 +74,19 @@ AI Systems + Research
 The research sequence is deliberately broader than the OSSU curriculum. It is intended to connect the **undergraduate CS foundation** to the research literature that produced modern AI systems.
 
 See [`RESEARCH_ROADMAP.md`](RESEARCH_ROADMAP.md).
+
+---
+
+## 🗓️ Study Plan
+
+The OSSU curriculum is supported by a structured study timeline and detailed curriculum dataset.
+
+The planning workbook contains:
+
+- **Timeline** — overall study schedule, workload assumptions and projected progression
+- **Curriculum Data** — detailed course data, estimated effort, prerequisites, calculated dates and actual completion tracking
+
+See [`study-plan/`](study-plan/) for the workbook documentation.
 
 ---
 
@@ -264,6 +278,9 @@ These projects are complementary to the formal OSSU curriculum and are not autom
 .
 ├── README.md
 ├── RESEARCH_ROADMAP.md
+├── study-plan/
+│   ├── README.md
+│   └── OSSU-CS-Timeline.xlsx
 ├── study-environment/
 │   ├── README.md
 │   ├── CHANGELOG.md
@@ -318,6 +335,7 @@ Completion means the material has actually been studied and understood sufficien
 - [OSSU Computer Science](https://github.com/ossu/computer-science) — official curriculum
 - [OSSU CS Website](https://cs.ossu.dev/) — current curriculum documentation
 - [Research Roadmap](RESEARCH_ROADMAP.md) — personal CS + Mathematics + AI research sequence
+- [Study Plan](study-plan/) — OSSU timeline and curriculum planning
 - [Study Environment](study-environment/) — computing environment used for practical study
 
 ---
