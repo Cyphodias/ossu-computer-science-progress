@@ -1,38 +1,38 @@
-# windows 11 pro laptop
+# Windows 11 Pro Laptop
 
 The laptop is the primary mobile Computer Science study and development workstation.
 
-## purpose
+## Purpose
 
 - OSSU coursework
-- programming and scripting
+- Programming and scripting
 - Git/GitHub work
-- documentation and research
+- Documentation and research
 - Linux practice through WSL and virtual machines
-- systems and networking experiments
-- development-tool testing
+- Systems and networking experiments
+- Development-tool testing
 
-## platform
+## Platform
 
-- operating system: Windows 11 Pro
-- virtualization: VirtualBox and Hyper-V as required by individual experiments
+- Operating system: Windows 11 Pro
+- Virtualization: VirtualBox and Hyper-V as required by individual experiments
 - Linux integration: WSL
-- shell/automation: PowerShell and Windows Terminal
+- Shell/automation: PowerShell and Windows Terminal
 
-## configuration areas
+## Configuration Areas
 
-### operating system
+### Operating System
 
 - Windows Update
 - Windows Security
-- firewall configuration
-- user-account configuration
-- privacy settings
-- storage management
-- power management
-- developer settings
+- Firewall configuration
+- User-account configuration
+- Privacy settings
+- Storage management
+- Power management
+- Developer settings
 
-### developer environment
+### Developer Environment
 
 - Git
 - GitHub tooling
@@ -42,39 +42,39 @@ The laptop is the primary mobile Computer Science study and development workstat
 - JavaScript/Node.js where required
 - VS Code and other development tools as required by coursework
 - SSH/OpenSSH
-- build systems and debuggers
+- Build systems and debuggers
 
-### virtualization
+### Virtualization
 
 - VirtualBox
 - Hyper-V
 - WSL2
-- virtual networking
+- Virtual networking
 - VM snapshots/checkpoints
-- isolated test environments
+- Isolated test environments
 
-### study tooling
+### Study Tooling
 
 - PDF and document tools
-- browser/research tools
-- spreadsheet and data-analysis tools
-- terminal utilities
-- note-taking/documentation tools
+- Browser/research tools
+- Spreadsheet and data-analysis tools
+- Terminal utilities
+- Note-taking/documentation tools
 
-## configuration status
+## Configuration Status
 
 This directory is a living record. Individual tools should only be marked as installed or configured after they have actually been set up and tested.
 
-## security
+## Security
 
 Do not document or commit:
 
-- passwords
-- recovery codes
-- private keys
+- Passwords
+- Recovery codes
+- Private keys
 - API tokens
-- product keys
-- personal identifiers
-- private network credentials
+- Product keys
+- Personal identifiers
+- Private network credentials
 
 See the repository-level public-repository rules in `../README.md`.
