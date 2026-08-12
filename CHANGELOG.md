@@ -11,6 +11,11 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Added the OSSU CS Timeline workbook, containing the `Timeline` and `Curriculum Data` sheets.
 - Added the GitHub-readable `CURRICULUM.md` derived from the `Curriculum Data` sheet, preserving the existing course links.
 - Added the research roadmap covering Computer Science, Mathematics, AI and Machine Learning.
+- Migrated the complete **257-entry research library** into the public `research/` directory with the existing links preserved.
+- Added the **36 primary books/references** used by the research sequence.
+- Added the **20-stage reading sequence** connecting books, papers and progressively deeper Computer Science/AI topics.
+- Added the **12 end-state capability areas** for the research track.
+- Added the research reading tracker and indexed paper ranges.
 
 ### Progress Recorded
 
