@@ -13,8 +13,9 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Corrected the multi-head attention equation formatting in `research/notes/attention-is-all-you-need.md` so the complete equation is contained in a single GitHub-compatible `$$ ... $$` display block.
 - Verified the research-note display equations use `$$ ... $$` delimiters and contain no `\operatorname` notation.
 - Expanded the **Attention Is All You Need** research note with integrated backpropagation and softmax foundations while preserving the existing Transformer equations, architecture explanations, implementation targets and research connections.
-- Added a **Layman Understanding** section explaining softmax and backpropagation intuitively before the mathematical treatment.
+- Added an **Intuition First** section explaining softmax and backpropagation intuitively before the mathematical treatment.
 - Added the mathematical connection between softmax, scaled dot-product attention, cross-entropy, gradients and end-to-end Transformer learning.
+- Corrected the research-note LaTeX display formatting comprehensively, preserving the equations and technical content while ensuring fractions, subscripts, superscripts, operators, cases and complete `$$ ... $$` blocks render correctly on GitHub.
 
 ### Repository Structure
 
