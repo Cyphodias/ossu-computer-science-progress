@@ -33,6 +33,7 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Added the TPA project reference alongside the arXiv paper.
 - Corrected GitHub-incompatible LaTeX notation in the research notes.
 - Added detailed notes on backpropagation, the chain rule, softmax, softmax derivatives, softmax scaling, cross-entropy and their relationship to Transformer training.
+- Added `research/notes/transformer-backpropagation.md` continuing the mathematical treatment from the chain rule and linear transformations through attention, softmax and Q/K/V gradient paths.
 
 ## 2026-08-12
 
