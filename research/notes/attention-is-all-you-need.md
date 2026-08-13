@@ -1,18 +1,14 @@
 # Attention Is All You Need
 
-**Authors:** Vaswani et al.
-
-**Year:** 2017
-
-**Research Library:** #122
-
-**Status:** 🟡 In Progress
-
+**Authors:** Vaswani et al.  
+**Year:** 2017  
+**Research Library:** #122  
+**Status:** 🟡 In Progress  
 **Primary link:** [arXiv](https://arxiv.org/abs/1706.03762)
 
 ## Why This Paper Matters
 
-This paper introduced the Transformer architecture, replacing recurrence and convolution as the primary mechanism for sequence transduction with attention. It established the architectural foundation for the later Transformer, BERT, GPT, T5 and modern large language model research lineage.
+This paper introduced the Transformer architecture, replacing recurrence and convolution as the primary mechanism for sequence transduction with attention. It established the architectural foundation for the later Transformer lineage (BERT, GPT, T5, and modern large language models).
 
 ## Core Problem
 
@@ -32,17 +28,17 @@ $$
 
 Where:
 
-- $Q$ = queries
-- $K$ = keys
-- $V$ = values
-- $d_k$ = key dimensionality
+- $Q$ = queries  
+- $K$ = keys  
+- $V$ = values  
+- $d_k$ = key dimensionality  
 
 The operation has four stages:
 
-1. $QK^T$ computes query-key compatibility scores.
-2. Division by $\sqrt{d_k}$ controls the magnitude of the scores.
-3. Softmax converts the scaled scores into normalized attention weights.
-4. The resulting weights form a weighted combination of the value vectors in $V$.
+1. $QK^T$ computes query-key compatibility scores.  
+2. Division by $\sqrt{d_k}$ controls the magnitude of the scores.  
+3. Softmax converts the scaled scores into normalized attention weights.  
+4. The resulting weights form a weighted combination of the value vectors in $V$.  
 
 The output therefore represents information retrieved from the values according to the compatibility between each query and the available keys.
 
@@ -78,14 +74,14 @@ Multiple heads allow the model to construct several attention representations si
 
 The Transformer consists of an encoder stack and a decoder stack. Its principal components are:
 
-- Multi-head self-attention
-- Encoder-decoder attention
-- Position-wise feed-forward networks
-- Residual connections
-- Layer normalization
-- Positional encoding
-- Causal masking in decoder self-attention
-- Linear projection and softmax output
+- Multi-head self-attention  
+- Encoder-decoder attention  
+- Position-wise feed-forward networks  
+- Residual connections  
+- Layer normalization  
+- Positional encoding  
+- Causal masking in decoder self-attention  
+- Linear projection and softmax output  
 
 The architecture combines these components into repeated layers rather than relying on recurrence or convolution to propagate sequence information.
 
@@ -113,7 +109,7 @@ Each major sublayer is surrounded by a residual connection and normalization. Th
 
 ## Position-Wise Feed-Forward Network
 
-After attention, each position is transformed independently by the same feed-forward network. Attention therefore performs interaction across positions, while the feed-forward component performs nonlinear transformation within each position's representation.
+After attention, each position is transformed independently by the same feed-forward network. Attention therefore performs interaction across positions, while the feed-forward component performs nonlinear transformation within each position’s representation.
 
 This separation is fundamental to the Transformer block:
 
@@ -159,13 +155,13 @@ This provides the conceptual starting point for studying approaches such as MQA,
 
 A practical reconstruction of the paper should include:
 
-1. Scaled dot-product attention from scratch.
-2. Learned Q/K/V projections.
-3. Multi-head attention from scratch.
-4. Causal masking.
-5. Positional encoding.
-6. A minimal Transformer block.
-7. A small sequence-to-sequence Transformer.
+1. Scaled dot-product attention from scratch.  
+2. Learned Q/K/V projections.  
+3. Multi-head attention from scratch.  
+4. Causal masking.  
+5. Positional encoding.  
+6. A minimal Transformer block.  
+7. A small sequence-to-sequence Transformer.  
 
 Implementation is useful because each component corresponds directly to a mathematical operation in the paper and makes the relationship between the equations and the architecture concrete.
 
@@ -205,7 +201,7 @@ The Transformer can then use these values as **attention weights**.
 
 In simple terms:
 
-> **Softmax turns "how strongly do I score each option?" into "how much attention should I give each option?"**
+> **Softmax turns “how strongly do I score each option?” into “how much attention should I give each option?”**
 
 ### Backpropagation — the simple idea
 
@@ -270,10 +266,10 @@ $$
 
 where:
 
-- $L$ = loss
-- $\theta$ = trainable parameters
-- $\nabla_\theta L$ = gradient of the loss with respect to those parameters
-- $\eta$ = learning rate
+- $L$ = loss  
+- $\theta$ = trainable parameters  
+- $\nabla_\theta L$ = gradient of the loss with respect to those parameters  
+- $\eta$ = learning rate  
 
 The gradient tells the optimizer **which direction each parameter should move and how strongly**.
 
@@ -478,7 +474,7 @@ $$
 
 The third value therefore contributes the most to the resulting representation.
 
-This is the mathematical meaning of the phrase **"paying attention"**.
+This is the mathematical meaning of the phrase **“paying attention”**.
 
 The model is not literally looking at words. It is calculating a weighted combination of representations.
 
@@ -622,16 +618,16 @@ The output layer therefore receives a direct signal indicating which probabiliti
 
 Softmax appears in two conceptually different places in a Transformer.
 
-| Location | Input | Output | Purpose |
-|---|---|---|---|
-| Attention | $QK^T/\sqrt{d_k}$ | Attention weights | Controls information mixing between positions |
-| Output layer | Vocabulary logits | Token probabilities | Predicts the next token |
+| Location      | Input                  | Output               | Purpose                                      |
+|---------------|------------------------|----------------------|----------------------------------------------|
+| Attention     | $QK^T/\sqrt{d_k}$      | Attention weights    | Controls information mixing between positions |
+| Output layer  | Vocabulary logits      | Token probabilities  | Predicts the next token                      |
 
 This distinction is important.
 
 **Attention softmax does not predict the next word.** It determines how strongly information from different sequence positions contributes to a representation.
 
-The **final vocabulary softmax** converts the model's output into probabilities over possible tokens.
+The **final vocabulary softmax** converts the model’s output into probabilities over possible tokens.
 
 Backpropagation connects both operations to the training objective.
 
@@ -755,7 +751,7 @@ $$
 \right)
 $$
 
-determines how strongly each position contributes to another position's representation.
+determines how strongly each position contributes to another position’s representation.
 
 ### Backpropagation
 
@@ -793,14 +789,14 @@ $$
 
 The following are useful areas for deeper treatment later:
 
-- the exact gradient flow through $QK^T$;
-- the Jacobian structure of softmax;
-- numerical stability when computing exponentials;
-- why the scaling factor becomes particularly important as $d_k$ increases;
-- the relationship between softmax saturation and vanishing gradients;
-- how causal masking modifies the attention logits before softmax;
-- how these mechanisms behave during autoregressive inference;
-- how attention computation and backpropagation interact with the later KV-cache discussion in TPA.
+- the exact gradient flow through $QK^T$;  
+- the Jacobian structure of softmax;  
+- numerical stability when computing exponentials;  
+- why the scaling factor becomes particularly important as $d_k$ increases;  
+- the relationship between softmax saturation and vanishing gradients;  
+- how causal masking modifies the attention logits before softmax;  
+- how these mechanisms behave during autoregressive inference;  
+- how attention computation and backpropagation interact with the later KV-cache discussion in TPA.  
 
 ---
 
@@ -1331,6 +1327,183 @@ $$
 
 This completes the missing mathematical link between the attention equation and the gradient that reaches the input representation.
 
-## 20. Next Step
+---
 
-The next mathematical step is to work through a **small numerical self-attention example by hand**, calculating $Q$, $K$, $V$, the attention scores, scaling, softmax, output, loss and then the corresponding backward gradients. That example should make every symbol above concrete before moving to multi-head attention and the complete Transformer block.
+## 20. Worked Numerical Example (Self-Attention Forward + Backward)
+
+We now make every symbol concrete with a tiny, fully hand-calculable example.
+
+**Setup**
+
+- Sequence length $n=2$  
+- Model dimension $d_{\text{model}}=2$  
+- Head dimension $d_k=2$ (single head for clarity)  
+- Identity projections so the numbers stay simple  
+
+$$
+X = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},
+\quad
+W^Q = W^K = W^V = I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+$$
+
+### 20.1 Forward Pass
+
+$$
+Q = XW^Q = X,\qquad
+K = XW^K = X,\qquad
+V = XW^V = X
+$$
+
+Raw scores:
+
+$$
+QK^T = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+$$
+
+Scaled scores:
+
+$$
+S = \frac{QK^T}{\sqrt{2}} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\approx \begin{bmatrix} 0.7071 & 0 \\ 0 & 0.7071 \end{bmatrix}
+$$
+
+Softmax (row-wise):
+
+$$
+A = \mathrm{softmax}(S) \approx
+\begin{bmatrix}
+0.6698 & 0.3302 \\
+0.3302 & 0.6698
+\end{bmatrix}
+$$
+
+Attention output:
+
+$$
+O = AV \approx
+\begin{bmatrix}
+0.6698 & 0.3302 \\
+0.3302 & 0.6698
+\end{bmatrix}
+$$
+
+(We stop here; in a real model $O$ would continue through the rest of the network and produce a scalar loss $L$.)
+
+### 20.2 Backward Pass (assume a simple upstream gradient)
+
+For illustration we take the upstream gradient to be the identity (as if the loss wanted $O$ to increase uniformly on the diagonal):
+
+$$
+G_O = \frac{\partial L}{\partial O} = I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+$$
+
+**Step 1 – through $O=AV$**
+
+$$
+G_A = G_O V^T = I\cdot I = I
+$$
+
+$$
+G_V = A^T G_O = A^T
+\approx\begin{bmatrix}
+0.6698 & 0.3302 \\
+0.3302 & 0.6698
+\end{bmatrix}
+$$
+
+**Step 2 – through softmax**
+
+Using the compact row-wise formula for each row $a$ of $A$ and corresponding row $g_A$ of $G_A$:
+
+$$
+g_S = a\odot\bigl(g_A - (g_A\cdot a)\mathbf{1}\bigr)
+$$
+
+After applying this to both rows we obtain (approximately):
+
+$$
+G_S \approx
+\begin{bmatrix}
+0.2210 & -0.2210 \\
+-0.2210 & 0.2210
+\end{bmatrix}
+$$
+
+**Step 3 – through scaling**
+
+$$
+G_M = \frac{G_S}{\sqrt{2}} \approx
+\begin{bmatrix}
+0.1563 & -0.1563 \\
+-0.1563 & 0.1563
+\end{bmatrix}
+$$
+
+**Step 4 – through $QK^T$**
+
+$$
+G_Q = G_M K = G_M\cdot I = G_M
+$$
+
+$$
+G_K = G_M^T Q = G_M^T
+$$
+
+**Step 5 – through the three projections**
+
+Because $W^Q=W^K=W^V=I$ we have:
+
+$$
+\frac{\partial L}{\partial X}
+=
+G_Q(W^Q)^T + G_K(W^K)^T + G_V(W^V)^T
+=
+G_Q + G_K + G_V
+$$
+
+Plugging in the numbers:
+
+$$
+\frac{\partial L}{\partial X}
+\approx
+\begin{bmatrix}
+0.1563 & -0.1563 \\
+-0.1563 & 0.1563
+\end{bmatrix}
++
+\begin{bmatrix}
+0.1563 & -0.1563 \\
+-0.1563 & 0.1563
+\end{bmatrix}
++
+\begin{bmatrix}
+0.6698 & 0.3302 \\
+0.3302 & 0.6698
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.9824 & 0.0176 \\
+0.0176 & 0.9824
+\end{bmatrix}
+$$
+
+### 20.3 Interpretation
+
+- The gradient with respect to $X$ is **not** equal to any single path; it is the sum of the three branches (query, key, value).  
+- Even with identity projections the gradient that reaches $X$ already mixes information from the attention weights and the upstream signal.  
+- In a real training step this $G_X$ (together with the gradients of the $W$ matrices) would be used by the optimizer to update the parameters.
+
+This tiny example can be recomputed by hand or in a few lines of NumPy/PyTorch and matches the matrix formulas derived in Sections 18–19.
+
+---
+
+## 21. Next Steps After the Numerical Example
+
+With the concrete numbers in place, the natural continuations are:
+
+1. Multi-head attention (split $d_{\text{model}}$ into heads, run the same math per head, concatenate, project).  
+2. Causal masking (set future logits to $-\infty$ before softmax and observe the effect on both forward weights and backward gradients).  
+3. A full Transformer block (add residual + LayerNorm + FFN) and the corresponding extra gradient paths.  
+4. Comparison with the memory layout and gradient flow of Tensor Product Attention.
