@@ -329,10 +329,7 @@ The attention computation is:
 $$
 \mathrm{Attention}(Q,K,V)
 =
-\mathrm{softmax}
-\left(
-\frac{QK^T}{\sqrt{d_k}}
-\right)V
+\mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
 The gradient therefore propagates through:
@@ -394,7 +391,8 @@ the softmax function is:
 $$
 \mathrm{softmax}(z_i)
 =
-\frac{e^{z_i}}{\sum_{j=1}^{n}e^{z_j}}
+\frac{e^{z_i}}
+{\sum_{j=1}^{n}e^{z_j}}
 $$
 
 The resulting values satisfy:
@@ -613,9 +611,7 @@ where $y_i$ is the one-hot target.
 This gives a particularly clear learning signal:
 
 $$
-\text{gradient}
-=
-\text{prediction}-\text{target}
+\text{gradient}=\text{prediction}-\text{target}
 $$
 
 The output layer therefore receives a direct signal indicating which probabilities should increase and which should decrease.
@@ -627,7 +623,7 @@ The output layer therefore receives a direct signal indicating which probabiliti
 Softmax appears in two conceptually different places in a Transformer.
 
 | Location | Input | Output | Purpose |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | Attention | $QK^T/\sqrt{d_k}$ | Attention weights | Controls information mixing between positions |
 | Output layer | Vocabulary logits | Token probabilities | Predicts the next token |
 
@@ -771,7 +767,7 @@ $$
 
 as well as the other parameters throughout the network.
 
-### Their relationship
+### Their Relationship
 
 Softmax participates directly in the forward computation, while backpropagation provides the mechanism through which the consequences of that computation influence parameter learning.
 
@@ -824,4 +820,4 @@ $$
 \text{Tensor Product Attention}
 $$
 
-The important comparison in TPA is therefore not simply a replacement of the attention equation. It concerns **how Q, K and V themselves are represented and stored**, particularly in relation to the KV-cache and memory requirements.
+The important comparison in TPA is therefore not simply a replacement of the attention equation. It concerns **how $Q$, $K$, and $V$ themselves are represented and stored**, particularly in relation to the KV-cache and memory requirements.
