@@ -63,16 +63,13 @@ As the key/query dimensionality increases, the magnitude of the dot products can
 ### Multi-Head Attention
 
 $$
-\mathrm{MultiHead}(Q,K,V)=\mathrm{Concat}(head_1,\ldots,head_h)W^O
+\mathrm{MultiHead}(Q,K,V)=\mathrm{Concat}(\mathrm{head}_1,\ldots,\mathrm{head}_h)W^O
 $$
 
 Each head performs attention using its own learned projections:
 
 $$
-\mathrm{head}_i
-=
-\mathrm{Attention}
-(QW_i^Q,KW_i^K,VW_i^V)
+\mathrm{head}_i=\mathrm{Attention}(QW_i^Q,KW_i^K,VW_i^V)
 $$
 
 Multiple heads allow the model to construct several attention representations simultaneously. Each head operates in its own learned projection subspace, allowing different heads to capture different relationships or features in the sequence before the results are concatenated and projected through $W^O$.
