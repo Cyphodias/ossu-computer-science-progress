@@ -900,38 +900,30 @@ $$
 A=\mathrm{softmax}(S)
 $$
 
-For each row, the softmax Jacobian is:
+Softmax is applied **independently to each row** of the score matrix.  
+Therefore the Jacobian is also defined **per row**.
+
+For a single attention row \(a = \mathrm{softmax}(s)\) the Jacobian matrix is:
 
 $$
-J_{\mathrm{softmax}}
-=
-\mathrm{diag}(A)-AA^T
+J = \mathrm{diag}(a) - a a^{T}
 $$
 
-Therefore the gradient with respect to the score matrix $S$ is obtained by multiplying the upstream gradient by the softmax Jacobian.
+(Note: writing \(\mathrm{diag}(A)-AA^{T}\) is incorrect; that expression does not correspond to the row-wise softmax used in attention.)
 
-For one attention row:
-
-$$
-g_S
-=
-\left[
-\mathrm{diag}(a)-aa^T
-\right]g_A
-$$
-
-Equivalently, the row-wise gradient can be written compactly as:
+Given an upstream row gradient \(g_A\), the gradient with respect to the pre-softmax scores is:
 
 $$
-g_S
-=
-a\odot
-\left(
-g_A-(g_A\cdot a)\mathbf{1}
-\right)
+g_S = \bigl[\mathrm{diag}(a) - a a^{T}\bigr] g_A
 $$
 
-where $\odot$ denotes element-wise multiplication.
+This can be evaluated efficiently without forming the full Jacobian:
+
+$$
+g_S = a \odot \bigl( g_A - (g_A \cdot a)\,\mathbf{1} \bigr)
+$$
+
+where \(\odot\) denotes element-wise multiplication.
 
 Thus:
 
@@ -1379,6 +1371,7 @@ A = \mathrm{softmax}(S) \approx
 \end{bmatrix}
 $$
 
+
 Attention output:
 
 $$
@@ -1426,8 +1419,8 @@ After applying this to both rows we obtain (approximately):
 $$
 G_S \approx
 \begin{bmatrix}
-0.2210 & -0.2210 \\
--0.2210 & 0.2210
+0.2212 & -0.2212 \\
+-0.2212 & 0.2212
 \end{bmatrix}
 $$
 
@@ -1436,8 +1429,8 @@ $$
 $$
 G_M = \frac{G_S}{\sqrt{2}} \approx
 \begin{bmatrix}
-0.1563 & -0.1563 \\
--0.1563 & 0.1563
+0.1564 & -0.1564 \\
+-0.1564 & 0.1564
 \end{bmatrix}
 $$
 
@@ -1469,13 +1462,13 @@ $$
 \frac{\partial L}{\partial X}
 \approx
 \begin{bmatrix}
-0.1563 & -0.1563 \\
--0.1563 & 0.1563
+0.1564 & -0.1564 \\
+-0.1564 & 0.1564
 \end{bmatrix}
 +
 \begin{bmatrix}
-0.1563 & -0.1563 \\
--0.1563 & 0.1563
+0.1564 & -0.1564 \\
+-0.1564 & 0.1564
 \end{bmatrix}
 +
 \begin{bmatrix}
@@ -1484,8 +1477,8 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-0.9824 & 0.0176 \\
-0.0176 & 0.9824
+0.9826 & 0.0174 \\
+0.0174 & 0.9826
 \end{bmatrix}
 $$
 
