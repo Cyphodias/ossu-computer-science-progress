@@ -2,6 +2,18 @@
 
 This file records significant milestones and structural changes to the OSSU Computer Science learning repository.
 
+## 2026-08-13
+
+### Research Progress
+
+- Began studying **Attention Is All You Need** (#122).
+- Began studying **Tensor Product Attention Is All You Need** as supplemental current research.
+- Added dedicated research notes for both papers.
+- Added mathematical explanations covering Q/K/V projections, scaled dot-product attention and multi-head attention.
+- Added implementation targets, research questions and comparative analysis.
+- Added the TPA project reference alongside the arXiv paper.
+- Corrected GitHub-incompatible LaTeX notation in the research notes.
+
 ## 2026-08-12
 
 ### Added
