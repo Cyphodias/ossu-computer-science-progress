@@ -17,6 +17,8 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Added the mathematical connection between softmax, scaled dot-product attention, cross-entropy, gradients and end-to-end Transformer learning.
 - Corrected the research-note LaTeX display formatting comprehensively, preserving the equations and technical content while ensuring fractions, subscripts, superscripts, operators, cases and complete `$$ ... $$` blocks render correctly on GitHub.
 - Corrected remaining escaped LaTeX control sequences in the backpropagation and softmax sections, including `\nabla` and `\ne`, so they remain intact in the Markdown source and render correctly on GitHub.
+- Reconstructed and verified the complete Backpropagation and Softmax section equation-by-equation, including equality operators, gradient paths, scaled attention scores, softmax derivatives, cross-entropy gradients, forward/backward paths and the final learning relationship.
+- Corrected the intermediate scaled-score notation to `S_scaled` so the raw score $S=QK^T$ is not silently redefined as the scaled score.
 
 ### Repository Structure
 
