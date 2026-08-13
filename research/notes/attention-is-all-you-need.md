@@ -173,8 +173,655 @@ Implementation is useful because each component corresponds directly to a mathem
 
 The paper is currently being studied as the foundation for the modern attention sequence. Its concepts are being compared directly with **Tensor Product Attention Is All You Need**, with particular attention to the representation of Q/K/V, inference-time memory and the evolution of efficient attention architectures.
 
-## Open Points / Ambiguities
+---
 
-- The precise behavior and specialization of individual attention heads is an empirical property rather than something guaranteed by the architecture.
-- The original sinusoidal positional encoding should be compared separately with later approaches such as RoPE.
-- The detailed memory and computational trade-offs introduced by later factorized or compressed attention mechanisms require analysis of their respective architectures and experiments.
+# Backpropagation and Softmax
+
+## 1. Layman Understanding
+
+### Softmax — the simple idea
+
+Softmax takes a collection of raw scores and turns them into **relative weights that add up to 1**.
+
+Imagine the Transformer is deciding which words are important to a particular word:
+
+```text
+The   cat   sat   on   the   mat
+ 5     2     8    1     3     4
+```
+
+These numbers are only scores. Softmax converts them into something like:
+
+```text
+The    0.04
+cat    0.01
+sat    0.72
+on     0.00
+the    0.03
+mat    0.20
+```
+
+The Transformer can then use these values as **attention weights**.
+
+In simple terms:
+
+> **Softmax turns "how strongly do I score each option?" into "how much attention should I give each option?"**
+
+### Backpropagation — the simple idea
+
+Backpropagation is how the Transformer **learns from its mistakes**.
+
+Suppose the model predicts:
+
+```text
+The cat sat on the ___
+```
+
+and assigns:
+
+```text
+mat    0.20
+floor  0.10
+chair  0.05
+...
+```
+
+but the correct answer is `mat`.
+
+The model calculates how wrong its prediction was, producing a **loss**.
+
+Backpropagation then works backward through the entire network and determines which parameters contributed to the error and by how much. Those parameters are then adjusted.
+
+```text
+Prediction
+    ↓
+Calculate error
+    ↓
+Backpropagation
+    ↓
+Calculate gradients
+    ↓
+Update parameters
+    ↓
+Better prediction
+```
+
+The Transformer does **not** manually learn rules about which words should attend to one another. It learns parameters that produce useful attention patterns through gradient-based optimization.
+
+---
+
+## 2. Backpropagation
+
+Backpropagation computes how the training loss changes with respect to the parameters of a neural network.
+
+For a model with parameters $\theta$:
+
+$$
+L=L(\theta)
+$$
+
+Training seeks to minimize $L$.
+
+The parameters are updated using gradient descent:
+
+$$
+\theta\leftarrow\theta-\eta\nabla_\theta L
+$$
+
+where:
+
+- $L$ = loss
+- $\theta$ = trainable parameters
+- $\nabla_\theta L$ = gradient of the loss with respect to those parameters
+- $\eta$ = learning rate
+
+The gradient tells the optimizer **which direction each parameter should move and how strongly**.
+
+---
+
+## 3. The Chain Rule
+
+Backpropagation is fundamentally an efficient application of the chain rule.
+
+For:
+
+$$
+x\rightarrow z\rightarrow y\rightarrow L
+$$
+
+the derivative is:
+
+$$
+\frac{\partial L}{\partial x}
+=
+\frac{\partial L}{\partial y}
+\frac{\partial y}{\partial z}
+\frac{\partial z}{\partial x}
+$$
+
+A Transformer consists of many interconnected mathematical operations, so the chain rule allows the loss gradient to propagate through the entire computational graph.
+
+For example, if:
+
+$$
+z=Wx+b
+$$
+
+and the subsequent network produces a loss $L$, then the gradient with respect to the weight matrix is:
+
+$$
+\frac{\partial L}{\partial W}
+=
+\frac{\partial L}{\partial z}
+\frac{\partial z}{\partial W}
+$$
+
+The resulting gradients are used by the optimization algorithm to update the parameters.
+
+---
+
+## 4. Backpropagation Through Attention
+
+The Transformer is differentiable end-to-end. Consequently, the loss gradient can propagate through the attention mechanism and update the parameters that generate the queries, keys and values.
+
+The attention computation is:
+
+$$
+\mathrm{Attention}(Q,K,V)
+=
+\mathrm{softmax}
+\left(
+\frac{QK^T}{\sqrt{d_k}}
+\right)V
+$$
+
+The gradient therefore propagates through:
+
+```text
+Q, K, V
+   ↓
+QKᵀ
+   ↓
+QKᵀ / √dₖ
+   ↓
+softmax
+   ↓
+weighted sum
+   ↓
+loss
+```
+
+The learned projections are:
+
+$$
+Q=XW^Q
+$$
+
+$$
+K=XW^K
+$$
+
+$$
+V=XW^V
+$$
+
+Therefore, gradients from the final loss propagate back through the attention operation into $Q$, $K$, and $V$, and then into the projection matrices:
+
+$$
+\frac{\partial L}{\partial W^Q},
+\qquad
+\frac{\partial L}{\partial W^K},
+\qquad
+\frac{\partial L}{\partial W^V}
+$$
+
+This is how the Transformer learns the representations used to determine which tokens should attend to which other tokens.
+
+---
+
+## 5. Softmax
+
+Softmax converts a vector of arbitrary real-valued scores into a normalized probability distribution.
+
+For:
+
+$$
+z=(z_1,z_2,\ldots,z_n)
+$$
+
+the softmax function is:
+
+$$
+\mathrm{softmax}(z_i)
+=
+\frac{e^{z_i}}{\sum_{j=1}^{n}e^{z_j}}
+$$
+
+The resulting values satisfy:
+
+$$
+0<\mathrm{softmax}(z_i)<1
+$$
+
+and:
+
+$$
+\sum_{i=1}^{n}\mathrm{softmax}(z_i)=1
+$$
+
+Therefore, softmax transforms relative scores into normalized weights.
+
+---
+
+## 6. Softmax in Transformer Attention
+
+In scaled dot-product attention, the raw compatibility scores are:
+
+$$
+S=QK^T
+$$
+
+The scores are scaled:
+
+$$
+S=\frac{QK^T}{\sqrt{d_k}}
+$$
+
+and softmax is then applied row-wise:
+
+$$
+A=\mathrm{softmax}
+\left(
+\frac{QK^T}{\sqrt{d_k}}
+\right)
+$$
+
+The matrix $A$ contains the attention weights.
+
+The final attention output is:
+
+$$
+O=AV
+$$
+
+Thus:
+
+$$
+Q,K,V
+\rightarrow
+QK^T
+\rightarrow
+\frac{QK^T}{\sqrt{d_k}}
+\rightarrow
+\mathrm{softmax}
+\rightarrow
+A
+\rightarrow
+AV
+$$
+
+For a particular query, the corresponding row of $A$ determines how strongly that query incorporates each available value vector.
+
+---
+
+## 7. What the Attention Weights Mean
+
+Suppose one row of the attention matrix is:
+
+$$
+A_i=[0.05,0.10,0.70,0.15]
+$$
+
+The corresponding output is:
+
+$$
+O_i=0.05V_1+0.10V_2+0.70V_3+0.15V_4
+$$
+
+The third value therefore contributes the most to the resulting representation.
+
+This is the mathematical meaning of the phrase **"paying attention"**.
+
+The model is not literally looking at words. It is calculating a weighted combination of representations.
+
+---
+
+## 8. Why Divide by $\sqrt{d_k}$?
+
+The Transformer uses:
+
+$$
+\frac{QK^T}{\sqrt{d_k}}
+$$
+
+rather than simply:
+
+$$
+QK^T
+$$
+
+As $d_k$ increases, dot products can become larger in magnitude.
+
+Large logits passed directly into softmax can produce extremely peaked distributions. For example:
+
+$$
+[0.0001,0.0002,0.9997]
+$$
+
+When softmax becomes highly saturated, its gradients can become very small and optimization can become more difficult.
+
+Dividing by:
+
+$$
+\sqrt{d_k}
+$$
+
+helps control the magnitude of the logits before softmax.
+
+Therefore:
+
+$$
+\text{larger dot products}
+\rightarrow
+\text{scaling}
+\rightarrow
+\text{better-controlled softmax inputs}
+\rightarrow
+\text{more stable optimization}
+$$
+
+This is an important part of the original Transformer attention formulation rather than an arbitrary normalization.
+
+---
+
+## 9. Derivative of Softmax
+
+Softmax is differentiable, which allows backpropagation to pass through the attention weights.
+
+For:
+
+$$
+y_i=\mathrm{softmax}(z_i)
+$$
+
+the derivative with respect to $z_j$ is:
+
+$$
+\frac{\partial y_i}{\partial z_j}
+=
+y_i(\delta_{ij}-y_j)
+$$
+
+where $\delta_{ij}$ is the Kronecker delta:
+
+$$
+\delta_{ij}
+=
+\begin{cases}
+1 & i=j\\
+0 & i\ne j
+\end{cases}
+$$
+
+Therefore:
+
+$$
+\frac{\partial y_i}{\partial z_i}
+=
+y_i(1-y_i)
+$$
+
+and for $i\ne j$:
+
+$$
+\frac{\partial y_i}{\partial z_j}
+=-y_i y_j
+$$
+
+This demonstrates an important property of softmax: **the output probabilities are coupled**. Changing one logit affects the entire probability distribution because all outputs share the same normalization denominator.
+
+---
+
+## 10. Softmax and Cross-Entropy
+
+At the output of the Transformer, the final hidden representation is converted into vocabulary logits:
+
+$$
+z=hW^O+b
+$$
+
+Softmax converts these logits into token probabilities:
+
+$$
+p_i=\frac{e^{z_i}}{\sum_j e^{z_j}}
+$$
+
+For target token $y$, cross-entropy loss is:
+
+$$
+L=-\log p_y
+$$
+
+When softmax and cross-entropy are combined, the derivative with respect to each logit simplifies to:
+
+$$
+\frac{\partial L}{\partial z_i}=p_i-y_i
+$$
+
+where $y_i$ is the one-hot target.
+
+This gives a particularly clear learning signal:
+
+$$
+\text{gradient}
+=
+\text{prediction}-\text{target}
+$$
+
+The output layer therefore receives a direct signal indicating which probabilities should increase and which should decrease.
+
+---
+
+## 11. Two Different Roles of Softmax
+
+Softmax appears in two conceptually different places in a Transformer.
+
+| Location | Input | Output | Purpose |
+| --- | --- | --- | --- |
+| Attention | $QK^T/\sqrt{d_k}$ | Attention weights | Controls information mixing between positions |
+| Output layer | Vocabulary logits | Token probabilities | Predicts the next token |
+
+This distinction is important.
+
+**Attention softmax does not predict the next word.** It determines how strongly information from different sequence positions contributes to a representation.
+
+The **final vocabulary softmax** converts the model's output into probabilities over possible tokens.
+
+Backpropagation connects both operations to the training objective.
+
+---
+
+## 12. Complete Forward Pass
+
+The overall relationship can be summarized as:
+
+$$
+X
+\rightarrow
+Q,K,V
+\rightarrow
+\mathrm{Attention}
+\rightarrow
+\mathrm{Transformer\ layers}
+\rightarrow
+h
+\rightarrow
+z
+\rightarrow
+\mathrm{softmax}
+\rightarrow
+L
+$$
+
+The attention component is:
+
+$$
+Q,K,V
+\rightarrow
+\frac{QK^T}{\sqrt{d_k}}
+\rightarrow
+\mathrm{softmax}
+\rightarrow
+AV
+$$
+
+The model therefore performs a sequence of differentiable operations.
+
+---
+
+## 13. Complete Backward Pass
+
+During training, the gradient travels in the opposite direction:
+
+$$
+L
+\rightarrow
+z
+\rightarrow
+h
+\rightarrow
+\mathrm{Transformer}
+\rightarrow
+A
+\rightarrow
+Q,K,V
+\rightarrow
+W^Q,W^K,W^V
+$$
+
+The optimizer then uses these gradients to update the parameters.
+
+This establishes the complete learning loop:
+
+$$
+\text{Input}
+\rightarrow
+\text{Prediction}
+\rightarrow
+\text{Loss}
+\rightarrow
+\text{Backpropagation}
+\rightarrow
+\text{Gradient}
+\rightarrow
+\text{Parameter Update}
+$$
+
+---
+
+## 14. Connection to Attention Is All You Need
+
+The significance of backpropagation and softmax in **Attention Is All You Need** is that the Transformer is not merely a new way of calculating attention.
+
+It is a **fully trainable differentiable architecture**.
+
+The attention mechanism:
+
+$$
+\mathrm{softmax}
+\left(
+\frac{QK^T}{\sqrt{d_k}}
+\right)V
+$$
+
+is embedded inside a larger computational graph.
+
+The parameters generating $Q$, $K$, and $V$ are learned because errors from the training objective propagate backward through the attention mechanism.
+
+Consequently, the Transformer learns representations in which useful relationships between tokens produce useful attention patterns.
+
+---
+
+## 15. Key Conclusions
+
+### Softmax
+
+Softmax converts relative scores into normalized weights.
+
+In attention:
+
+$$
+\mathrm{softmax}
+\left(
+\frac{QK^T}{\sqrt{d_k}}
+\right)
+$$
+
+determines how strongly each position contributes to another position's representation.
+
+### Backpropagation
+
+Backpropagation calculates how the final loss depends on the parameters throughout the Transformer.
+
+It allows the model to learn:
+
+$$
+W^Q,W^K,W^V,W^O
+$$
+
+as well as the other parameters throughout the network.
+
+### Their relationship
+
+Softmax participates directly in the forward computation, while backpropagation provides the mechanism through which the consequences of that computation influence parameter learning.
+
+Therefore:
+
+$$
+\text{Attention computation}
++
+\text{differentiability}
++
+\text{backpropagation}
++
+\text{optimization}
+=
+\text{learned attention}
+$$
+
+---
+
+## 16. Open Points / Further Connections
+
+The following are useful areas for deeper treatment later:
+
+- the exact gradient flow through $QK^T$;
+- the Jacobian structure of softmax;
+- numerical stability when computing exponentials;
+- why the scaling factor becomes particularly important as $d_k$ increases;
+- the relationship between softmax saturation and vanishing gradients;
+- how causal masking modifies the attention logits before softmax;
+- how these mechanisms behave during autoregressive inference;
+- how attention computation and backpropagation interact with the later KV-cache discussion in TPA.
+
+---
+
+## 17. Connection to Later Research
+
+The concepts above form the mathematical foundation for understanding later attention variants and the TPA paper.
+
+The progression is:
+
+$$
+\text{Dense Q/K/V}
+\rightarrow
+\text{Attention}
+\rightarrow
+\text{KV representations}
+\rightarrow
+\text{MHA/MQA/GQA/MLA}
+\rightarrow
+\text{Tensor Product Attention}
+$$
+
+The important comparison in TPA is therefore not simply a replacement of the attention equation. It concerns **how Q, K and V themselves are represented and stored**, particularly in relation to the KV-cache and memory requirements.
