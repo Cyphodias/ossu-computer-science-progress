@@ -10,6 +10,13 @@ This is the high-level control surface for the research library. Detailed refere
 - 🔁 **Reviewing** — revisiting after initial study.
 - 📚 **Reference** — supporting material retained for later use.
 
+## Current Study
+
+| Reference | Library Entry | Status | Notes |
+|---|---|---|---|
+| [Attention Is All You Need](papers/121-160.md) | #122 | 🟡 In Progress | Foundational Transformer architecture; detailed notes are in [`notes/attention-is-all-you-need.md`](notes/attention-is-all-you-need.md). |
+| [Tensor Product Attention Is All You Need](https://arxiv.org/abs/2501.06425) | Supplemental current research | 🟡 In Progress | Modern factorized attention and KV-cache efficiency; detailed notes are in [`notes/tensor-product-attention-is-all-you-need.md`](notes/tensor-product-attention-is-all-you-need.md). |
+
 ## Current Library
 
 - **257** papers/references
