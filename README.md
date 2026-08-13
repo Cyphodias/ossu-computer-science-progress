@@ -241,6 +241,11 @@ See [`Projects`](projects/).
 
 The knowledge base records concepts in my own words, mathematical foundations, examples, implementations and connections to courses and research.
 
+**Documentation convention:**
+
+- `notes/` → course and general knowledge notes
+- `research/notes/` → paper-specific research notes
+
 See [`Notes`](notes/).
 
 ### Experiments
@@ -302,7 +307,10 @@ These activities complement the formal OSSU curriculum and are not automatically
 │
 ├── research/
 │   ├── README.md
-│   └── reading-tracker.md
+│   ├── reading-tracker.md
+│   └── notes/
+│       ├── attention-is-all-you-need.md
+│       └── tensor-product-attention-is-all-you-need.md
 │
 ├── projects/
 │   ├── README.md
