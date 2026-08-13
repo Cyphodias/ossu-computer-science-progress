@@ -10,6 +10,8 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Preserved equations, derivations, comparisons, technical explanations and implementation targets as part of the permanent research record.
 - Moved unresolved interpretations, genuine ambiguity and items requiring further verification to an **Open Points / Ambiguities** section at the end of research notes.
 - Documented the distinction in `README.md`: `notes/` contains course and general knowledge notes, while `research/notes/` contains paper-specific research notes.
+- Corrected the multi-head attention equation formatting in `research/notes/attention-is-all-you-need.md` so the complete equation is contained in a single GitHub-compatible `$$ ... $$` display block.
+- Verified the research-note display equations use `$$ ... $$` delimiters and contain no `\operatorname` notation.
 
 ### Repository Structure
 
