@@ -177,7 +177,7 @@ The paper is currently being studied as the foundation for the modern attention 
 
 # Backpropagation and Softmax
 
-## 1. Layman Understanding
+## 1. Intuition First
 
 ### Softmax — the simple idea
 
