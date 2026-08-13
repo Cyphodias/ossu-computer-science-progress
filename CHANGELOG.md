@@ -19,6 +19,7 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Corrected remaining escaped LaTeX control sequences in the backpropagation and softmax sections, including `\nabla` and `\ne`, so they remain intact in the Markdown source and render correctly on GitHub.
 - Reconstructed and verified the complete Backpropagation and Softmax section equation-by-equation, including equality operators, gradient paths, scaled attention scores, softmax derivatives, cross-entropy gradients, forward/backward paths and the final learning relationship.
 - Corrected the intermediate scaled-score notation to `S_scaled` so the raw score $S=QK^T$ is not silently redefined as the scaled score.
+- Restored the complete **Sections 18–20** of `research/notes/attention-is-all-you-need.md`, including the full $\partial L/\partial X$ derivation, matrix backward-pass summary and the planned numerical self-attention example, after verifying the loss against the known-good Git history.
 
 ### Repository Structure
 
