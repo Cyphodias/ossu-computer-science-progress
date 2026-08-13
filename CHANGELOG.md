@@ -12,6 +12,9 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Documented the distinction in `README.md`: `notes/` contains course and general knowledge notes, while `research/notes/` contains paper-specific research notes.
 - Corrected the multi-head attention equation formatting in `research/notes/attention-is-all-you-need.md` so the complete equation is contained in a single GitHub-compatible `$$ ... $$` display block.
 - Verified the research-note display equations use `$$ ... $$` delimiters and contain no `\operatorname` notation.
+- Expanded the **Attention Is All You Need** research note with integrated backpropagation and softmax foundations while preserving the existing Transformer equations, architecture explanations, implementation targets and research connections.
+- Added a **Layman Understanding** section explaining softmax and backpropagation intuitively before the mathematical treatment.
+- Added the mathematical connection between softmax, scaled dot-product attention, cross-entropy, gradients and end-to-end Transformer learning.
 
 ### Repository Structure
 
@@ -27,6 +30,7 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Added implementation targets, research questions and comparative analysis.
 - Added the TPA project reference alongside the arXiv paper.
 - Corrected GitHub-incompatible LaTeX notation in the research notes.
+- Added detailed notes on backpropagation, the chain rule, softmax, softmax derivatives, softmax scaling, cross-entropy and their relationship to Transformer training.
 
 ## 2026-08-12
 
