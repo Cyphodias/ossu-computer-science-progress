@@ -261,14 +261,14 @@ Training seeks to minimize $L$.
 The parameters are updated using gradient descent:
 
 $$
-\theta\leftarrow\theta-\eta∇_\theta L
+\theta\leftarrow\theta-\eta\nabla_\theta L
 $$
 
 where:
 
 - $L$ = loss  
 - $\theta$ = trainable parameters  
-- $∇_\theta L$ = gradient of the loss with respect to those parameters  
+- $\nabla_\theta L$ = gradient of the loss with respect to those parameters  
 - $\eta$ = learning rate  
 
 The gradient tells the optimizer **which direction each parameter should move and how strongly**.
@@ -553,7 +553,7 @@ $$
 =
 \begin{cases}
 1 & i=j\\
-0 & i≠j
+0 & i\ne j
 \end{cases}
 $$
 
@@ -565,7 +565,7 @@ $$
 y_i(1-y_i)
 $$
 
-and for $i≠j$:
+and for $i\ne j$:
 
 $$
 \frac{\partial y_i}{\partial z_j}
@@ -903,15 +903,15 @@ $$
 Softmax is applied **independently to each row** of the score matrix.  
 Therefore the Jacobian is also defined **per row**.
 
-For a single attention row $a = \mathrm{softmax}(s)$ the Jacobian matrix is:
+For a single attention row \(a = \mathrm{softmax}(s)\) the Jacobian matrix is:
 
 $$
 J = \mathrm{diag}(a) - a a^{T}
 $$
 
-(Note: writing $\mathrm{diag}(A)-AA^{T}$ is incorrect; that expression does not correspond to the row-wise softmax used in attention.)
+(Note: writing \(\mathrm{diag}(A)-AA^{T}\) is incorrect; that expression does not correspond to the row-wise softmax used in attention.)
 
-Given an upstream row gradient $g_A$, the gradient with respect to the pre-softmax scores is:
+Given an upstream row gradient \(g_A\), the gradient with respect to the pre-softmax scores is:
 
 $$
 g_S = \bigl[\mathrm{diag}(a) - a a^{T}\bigr] g_A
@@ -923,7 +923,7 @@ $$
 g_S = a \odot \bigl( g_A - (g_A \cdot a)\,\mathbf{1} \bigr)
 $$
 
-where $\odot$ denotes element-wise multiplication.
+where \(\odot\) denotes element-wise multiplication.
 
 Thus:
 
@@ -1370,6 +1370,7 @@ A = \mathrm{softmax}(S) \approx
 0.3302 & 0.6698
 \end{bmatrix}
 $$
+
 
 Attention output:
 
