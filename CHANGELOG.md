@@ -4,6 +4,13 @@ This file records significant milestones and structural changes to the OSSU Comp
 
 ## 2026-08-13
 
+### Documentation Standards
+
+- Established the research-note writing convention: research notes record established understanding, explanations, mathematical detail and conclusions rather than presenting the learning process as a sequence of questions.
+- Preserved equations, derivations, comparisons, technical explanations and implementation targets as part of the permanent research record.
+- Moved unresolved interpretations, genuine ambiguity and items requiring further verification to an **Open Points / Ambiguities** section at the end of research notes.
+- Documented the distinction in `README.md`: `notes/` contains course and general knowledge notes, while `research/notes/` contains paper-specific research notes.
+
 ### Repository Structure
 
 - Established a clear separation between general/course knowledge notes under `notes/` and paper-specific research notes under `research/notes/`.
