@@ -16,6 +16,7 @@ This file records significant milestones and structural changes to the OSSU Comp
 - Added an **Intuition First** section explaining softmax and backpropagation intuitively before the mathematical treatment.
 - Added the mathematical connection between softmax, scaled dot-product attention, cross-entropy, gradients and end-to-end Transformer learning.
 - Corrected the research-note LaTeX display formatting comprehensively, preserving the equations and technical content while ensuring fractions, subscripts, superscripts, operators, cases and complete `$$ ... $$` blocks render correctly on GitHub.
+- Corrected remaining escaped LaTeX control sequences in the backpropagation and softmax sections, including `\nabla` and `\ne`, so they remain intact in the Markdown source and render correctly on GitHub.
 
 ### Repository Structure
 
