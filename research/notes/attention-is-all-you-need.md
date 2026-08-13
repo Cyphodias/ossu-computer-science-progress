@@ -27,7 +27,7 @@ The Transformer is built around attention. Instead of processing tokens strictly
 ### Scaled Dot-Product Attention
 
 $$
-\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
 Where:
@@ -57,7 +57,7 @@ The learned matrices allow the model to construct different representations for 
 ### Multi-Head Attention
 
 $$
-\operatorname{MultiHead}(Q,K,V)=\operatorname{Concat}(head_1,\ldots,head_h)W^O
+\mathrm{MultiHead}(Q,K,V)=\mathrm{Concat}(head_1,\ldots,head_h)W^O
 $$
 
 Each head performs attention using its own learned projections. Multiple heads allow the model to capture different relationships or representation subspaces simultaneously.
