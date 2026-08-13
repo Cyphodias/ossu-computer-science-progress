@@ -4,6 +4,11 @@ This file records significant milestones and structural changes to the OSSU Comp
 
 ## 2026-08-13
 
+### Repository Structure
+
+- Established a clear separation between general/course knowledge notes under `notes/` and paper-specific research notes under `research/notes/`.
+- Added dedicated knowledge-note areas for Mathematics, Programming, Algorithms, Systems, Networking, Databases, Security, Machine Learning and AI.
+
 ### Research Progress
 
 - Began studying **Attention Is All You Need** (#122).
