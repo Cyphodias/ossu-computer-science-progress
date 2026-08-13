@@ -55,7 +55,7 @@ TPA attempts to reduce this cost through compact factorized representations.
 The original Transformer computes:
 
 $$
-\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
 The important comparison question is therefore:
