@@ -261,14 +261,14 @@ Training seeks to minimize $L$.
 The parameters are updated using gradient descent:
 
 $$
-\theta\leftarrow\theta-\eta\nabla_\theta L
+\theta\leftarrow\theta-\eta∇_\theta L
 $$
 
 where:
 
 - $L$ = loss  
 - $\theta$ = trainable parameters  
-- $\nabla_\theta L$ = gradient of the loss with respect to those parameters  
+- $∇_\theta L$ = gradient of the loss with respect to those parameters  
 - $\eta$ = learning rate  
 
 The gradient tells the optimizer **which direction each parameter should move and how strongly**.
@@ -553,7 +553,7 @@ $$
 =
 \begin{cases}
 1 & i=j\\
-0 & i\ne j
+0 & i≠j
 \end{cases}
 $$
 
@@ -565,7 +565,7 @@ $$
 y_i(1-y_i)
 $$
 
-and for $i\ne j$:
+and for $i≠j$:
 
 $$
 \frac{\partial y_i}{\partial z_j}
